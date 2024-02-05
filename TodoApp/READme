@@ -1,0 +1,32 @@
+. Build the Docker Image:
+
+1. Make sure you have Docker installed on both systems.
+Create a Dockerfile in your project's root directory with the instructions mentioned previously.
+Build the image:
+
+Bash
+docker build -t my-fastapi-app .
+Use code with caution. Learn more
+
+2. Push the Image to a Registry (Optional):
+
+If you want to run the container on different systems without rebuilding it locally, push the image to a Docker registry like Docker Hub or private registries of your cloud provider:
+Bash
+docker login <registry> (e.g., docker login docker.io)
+docker tag my-fastapi-app <registry>/my-fastapi-app
+docker push <registry>/my-fastapi-app
+Use code with caution. Learn more
+
+ 3. Run the Container:
+
+On the target system, pull the image if you pushed it to a registry, or use the local image:
+
+Bash
+docker pull my-fastapi-app   # If using registry
+
+# OR
+
+docker run my-fastapi-app    # If using local image
+Use code with caution. Learn more
+
+This will start the container, running your FastAPI application. By default, it exposes port 8000, so your app will be accessible at http://localhost:8000.
